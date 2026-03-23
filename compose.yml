@@ -42,20 +42,21 @@ services:
     depends_on:
       - server
     
-  client-ps:
-    build: ./client-ps
-    container_name: icmp-client-ps
-    cap_add:
-      - NET_RAW
-      - NET_ADMIN
-    environment:
-      - SERVER_IP=icmp-server
-      - CLIENT_ID=cliente-ps
-    networks:
-      - icmp-network
-    restart: unless-stopped
-    depends_on:
-      - server
+  #client-ps:
+  #  build: ./client-ps
+  #  container_name: icmp-client-ps
+  #  cap_add:
+  #    - NET_RAW
+  #    - NET_ADMIN
+  #  environment:
+  #    - SERVER_IP=172.18.0.2
+  #    - CLIENT_ID=cliente-ps
+  #  networks:
+  #    - icmp-network
+  #  restart: unless-stopped
+  #  privileged: true
+  #  depends_on:
+  #    - server
 networks:
   icmp-network:
     driver: bridge

@@ -1,7 +1,0 @@
-# Comando : ps aux
-# Cliente : cliente2
-# Fecha   : 2026-03-23 12:28:23
-
-PID   USER     TIME  COMMAND
-    1 root      0:00 python3 -u cliente_icmp.py icmp-server
-    7 root      0:00 ps aux

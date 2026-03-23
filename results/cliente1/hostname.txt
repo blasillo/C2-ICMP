@@ -1,5 +1,0 @@
-# Comando : hostname
-# Cliente : cliente1
-# Fecha   : 2026-03-23 12:24:12
-
-84797b8c4fa1
