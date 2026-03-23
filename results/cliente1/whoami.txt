@@ -1,0 +1,5 @@
+# Comando : whoami
+# Cliente : cliente1
+# Fecha   : 2026-03-23 12:24:12
+
+root

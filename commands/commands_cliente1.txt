@@ -1,0 +1,5 @@
+# Comandos para cliente1
+whoami
+uname -a
+hostname
+ip a

@@ -1,0 +1,4 @@
+# Comandos para cliente1
+ps aux
+ls -la /
+cat /etc/os-release

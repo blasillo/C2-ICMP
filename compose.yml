@@ -1,0 +1,61 @@
+services:
+  server:
+    build: ./server
+    container_name: icmp-server
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    networks:
+      - icmp-network
+    volumes:
+      - ./commands:/app/commands   # ficheros commands_<id>.txt
+      - ./results:/app/results     # resultados guardados en disco
+    restart: unless-stopped
+
+  client1:
+    build: ./client
+    container_name: icmp-client1
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    environment:
+      - SERVER_IP=icmp-server
+      - CLIENT_ID=cliente1
+    networks:
+      - icmp-network
+    restart: unless-stopped
+    depends_on:
+      - server
+
+  client2:
+    build: ./client
+    container_name: icmp-client2
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    environment:
+      - SERVER_IP=icmp-server
+      - CLIENT_ID=cliente2
+    networks:
+      - icmp-network
+    restart: unless-stopped
+    depends_on:
+      - server
+    
+  client-ps:
+    build: ./client-ps
+    container_name: icmp-client-ps
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    environment:
+      - SERVER_IP=icmp-server
+      - CLIENT_ID=cliente-ps
+    networks:
+      - icmp-network
+    restart: unless-stopped
+    depends_on:
+      - server
+networks:
+  icmp-network:
+    driver: bridge
